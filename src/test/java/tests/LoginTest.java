@@ -18,7 +18,7 @@ public class LoginTest extends BaseTest {
     @DataProvider()
     public Object[][] loginData() {
         return new Object[][]{
-                {"locked_out_user", "secret_sauce", "Epic sadface: Sorry, this user has been locked out"},
+                {"locked_out_user", "secret_sauce", "Epic sadface: Sorry, this user has been locked out."},
                 {"standard_users", "", "Epic sadface: Password is required"},
                 {"", "secret_sauce", "Epic sadface: Username is required"}
         };
