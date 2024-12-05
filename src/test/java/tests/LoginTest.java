@@ -1,18 +1,32 @@
 package tests;
+import io.qameta.allure.*;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+//import utils.AllureUtils;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 
 public class LoginTest extends BaseTest {
-    @Test
+
+    @Epic("Модуль логина интернет-магазина")
+    @Feature("TMS-56")
+    @Story("TNS-56.67")
+    @Severity(SeverityLevel.BLOCKER)
+    @Owner("Anna")
+    @TmsLink("UrnSu")
+    @Test (description = "авторизация под верными данными")
+    @Issue("3")
+    @Description ("Проверка входа в систему интернет-магазина")
+    @Flaky
     public void correctLogin() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
-        assertTrue(productsPage.isDispl(), "");
+        // AllureUtils.takeScreenshot(driver);
         assertEquals(productsPage.getTitle(), "Products");
+        assertTrue(productsPage.isDispl(), "");
+
     }
 
     @DataProvider()
