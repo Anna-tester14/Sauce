@@ -2,7 +2,7 @@ package tests;
 import io.qameta.allure.*;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-//import utils.AllureUtils;
+import utils.AllureUtils;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -22,7 +22,7 @@ public class LoginTest extends BaseTest {
     @Flaky
     public void correctLogin() {
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         // AllureUtils.takeScreenshot(driver);
         assertEquals(productsPage.getTitle(), "Products");
         assertTrue(productsPage.isDispl(), "");
